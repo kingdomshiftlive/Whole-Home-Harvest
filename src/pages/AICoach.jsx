@@ -1,47 +1,55 @@
 import { useState, useRef, useEffect } from 'react';
-import { Send, Leaf, Sparkles, RefreshCw } from 'lucide-react';
+import { Send, Leaf, Sparkles, RefreshCw, ShieldCheck } from 'lucide-react';
 import './AICoach.css';
 
-const SYSTEM_PROMPT = `You are Whole Home Harvest's AI Harvest Advisor — a warm, knowledgeable, and faith-rooted companion for Kingdom homesteaders.
-
-Your purpose is to help homesteaders with:
-1. Garden planning — what to plant, when to plant, spacing, companion planting, crop rotation
-2. Planting schedules — based on growing zones, frost dates, and seed starting timelines
-3. Canning and food preservation — water bath canning, pressure canning, freezing, dehydrating, fermenting
-4. Pest and disease identification — organic solutions preferred, integrated pest management
-5. Backyard chickens and small livestock — basic husbandry, health, coop setup, breeds
-6. Soil health — compost, soil amendments, cover crops, raised beds
-7. Seasonal eating and preservation strategies
-8. Faith integration — connecting homesteading work to biblical stewardship principles
-
-YOUR TONE:
-- Warm and encouraging — like a knowledgeable neighbor who has been homesteading for years
-- Faith-aware — acknowledge the biblical dimension of homesteading when appropriate (Genesis 2:15, stewardship, first fruits)
-- Practical — give real, actionable advice with specific details
-- Honest about limits — recommend local cooperative extension services for highly regional questions
-
-KINGDOM PERSPECTIVE:
-When relevant, connect homesteading to biblical principles:
-- Genesis 2:15 — Work and keep the garden is humanity's first calling
-- Proverbs 31 — The virtuous woman provided food for her household
-- Galatians 6:9 — Do not grow weary in doing good, the harvest is coming
-- The principle of first fruits — honoring God with the first of the harvest
-
-CRITICAL: Always recommend USDA-tested recipes for canning. Never suggest untested canning recipes or methods that could compromise food safety. For serious plant disease or animal health issues, recommend consulting a local cooperative extension agent or veterinarian.`;
-
 const starterPrompts = [
-  { label: '🌱 What to Plant Now', prompt: 'I am in growing zone 6b. What should I be planting right now and what can I start from seed indoors?' },
-  { label: '🫙 Canning Green Beans', prompt: 'How do I safely can green beans at home? What equipment do I need and what are the exact steps?' },
-  { label: '🐓 Starting Backyard Chickens', prompt: 'I want to start a small backyard flock of 4-6 chickens for eggs. Where do I begin?' },
-  { label: '🍅 Too Many Tomatoes', prompt: 'My tomato plants are producing more than I can eat. What are the best ways to preserve them?' },
-  { label: '🐛 Pest Problem', prompt: 'Something is eating holes in my cabbage leaves. How do I identify what it is and deal with it organically?' },
-  { label: '🌿 Building Better Soil', prompt: 'My garden soil is clay-heavy and compacted. How do I improve it over one or two seasons?' },
+  { label: '🌱 What to Plant Now', prompt: 'I am in growing zone 6b. What should I plant this month?' },
+  { label: '🫙 Canning Green Beans', prompt: 'How do I safely can green beans at home?' },
+  { label: '🐓 Starting Backyard Chickens', prompt: 'How do I start a backyard flock for eggs?' },
+  { label: '🍅 Too Many Tomatoes', prompt: 'What are the best ways to preserve extra tomatoes?' },
+  { label: '🐛 Pest Problem', prompt: 'Something is eating holes in my cabbage leaves.' },
+  { label: '🌿 Building Better Soil', prompt: 'How do I improve clay-heavy garden soil?' },
 ];
+
+const knowledgeBase = [
+  {
+    terms: ['zone', 'plant', 'seed', 'start', 'calendar', 'month'],
+    answer: `Start with your USDA zone, last frost date, and first frost date. For most beginner gardens, choose 3-5 reliable crops first: lettuce, green beans, tomatoes, basil, and zucchini.\n\nSteps:\n- Use the Planting Calendar on the Tools page.\n- Start cool-season crops before heat arrives.\n- Start warm-season crops after frost danger has passed.\n- Keep notes so next season is easier.\n\nFaith reminder: seedtime and harvest are rhythms God built into creation. Start small and steward it well.`
+  },
+  {
+    terms: ['can', 'canning', 'green beans', 'pressure', 'water bath', 'jar'],
+    answer: `Green beans are a low-acid food, so they must be pressure canned, not water-bath canned.\n\nSafety steps:\n- Use a current USDA-tested recipe.\n- Use a real pressure canner, not a pressure cooker.\n- Adjust for altitude.\n- Inspect jars and lids.\n- Process for the tested time and pressure.\n- When in doubt, use the National Center for Home Food Preservation or your local extension office.\n\nThis advisor is educational only. Food safety decisions should always be verified with tested sources.`
+  },
+  {
+    terms: ['chicken', 'flock', 'hen', 'coop', 'egg', 'rooster'],
+    answer: `For backyard chickens, start with local rules first. Many areas allow hens but restrict roosters.\n\nBeginner checklist:\n- Confirm local ordinances.\n- Start with 3-6 hens.\n- Provide predator-proof housing.\n- Plan about 4 sq ft per bird inside and 10 sq ft per bird in the run.\n- Provide layer feed, grit, oyster shell, clean water, shade, and ventilation.\n- Choose calm beginner breeds like Australorp, Orpington, Plymouth Rock, or Rhode Island Red.\n\nFor illness or injury, contact a veterinarian or poultry extension resource.`
+  },
+  {
+    terms: ['tomato', 'tomatoes', 'preserve', 'sauce', 'salsa'],
+    answer: `Extra tomatoes are a blessing, but preserve them safely.\n\nBest options:\n- Freeze whole tomatoes for later sauce.\n- Dehydrate slices for soups and powders.\n- Make sauce using a tested canning recipe.\n- Can crushed tomatoes only with proper acidification.\n- Make salsa only from tested recipes because ratios matter.\n\nNever guess with canning acidity. Use USDA-tested recipes and bottled lemon juice or citric acid when required.`
+  },
+  {
+    terms: ['bug', 'pest', 'holes', 'cabbage', 'worm', 'leaves'],
+    answer: `Holes in cabbage leaves are often from cabbage worms, loopers, slugs, or flea beetles.\n\nWhat to do:\n- Check undersides of leaves early morning.\n- Hand-pick visible worms.\n- Use row cover before pests arrive.\n- Encourage beneficial insects.\n- For caterpillars, many organic growers use Bt according to label directions.\n- Remove badly damaged leaves and keep beds clean.\n\nIf damage spreads quickly, contact your local extension office with photos.`
+  },
+  {
+    terms: ['soil', 'clay', 'compost', 'raised bed', 'amend'],
+    answer: `Clay soil can become productive with patience. Do not try to fix it all at once.\n\nTwo-season plan:\n- Add 2-3 inches of finished compost each season.\n- Avoid working clay when it is wet.\n- Use mulch to protect the surface.\n- Add organic matter, not sand.\n- Use cover crops where possible.\n- Consider raised beds while improving native soil slowly.\n\nGood soil is built, not bought. Steward it season by season.`
+  },
+];
+
+const fallbackAnswer = `Here is a simple way to move forward:\n\n- Start with your growing zone and season.\n- Choose one practical next step instead of trying to do everything.\n- Use the Tools page for planting dates, growing zones, canning basics, and seasonal rhythms.\n- For food safety, always verify with USDA-tested canning guidance.\n- For animal health, local laws, or plant disease, contact a local extension office or qualified professional.\n\nWhole Home Harvest is here to help you tend the earth, feed your family, and honor God one faithful step at a time.`;
+
+function getAdvisorReply(text) {
+  const lower = text.toLowerCase();
+  const hit = knowledgeBase.find(item => item.terms.some(term => lower.includes(term)));
+  return hit ? hit.answer : fallbackAnswer;
+}
 
 export default function AICoach() {
   const [messages, setMessages] = useState([{
     role: 'assistant',
-    content: 'Welcome to the Whole Home Harvest AI Advisor. 🌱\n\nI am here to help with garden planning, planting schedules, canning and preservation, backyard chickens, soil health, and the biblical principles of homestead stewardship.\n\nWhat can I help you grow today?',
+    content: 'Welcome to the Whole Home Harvest Advisor. 🌱\n\nThis demo advisor gives instant homesteading guidance without requiring an API key. A buyer can later connect Claude, OpenAI, or another AI provider through a secure backend endpoint.\n\nWhat can I help you grow today?',
   }]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -53,28 +61,12 @@ export default function AICoach() {
     const userText = (text || input).trim();
     if (!userText || loading) return;
     setInput('');
-    const newMessages = [...messages, { role: 'user', content: userText }];
-    setMessages(newMessages);
+    setMessages(prev => [...prev, { role: 'user', content: userText }]);
     setLoading(true);
-    try {
-      const res = await fetch('https://api.anthropic.com/v1/messages', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          model: 'claude-sonnet-4-6',
-          max_tokens: 1000,
-          system: SYSTEM_PROMPT,
-          messages: newMessages.map(m => ({ role: m.role, content: m.content })),
-        }),
-      });
-      const data = await res.json();
-      const reply = data.content?.[0]?.text || 'I am having trouble responding right now. Please try again.';
-      setMessages(prev => [...prev, { role: 'assistant', content: reply }]);
-    } catch {
-      setMessages(prev => [...prev, { role: 'assistant', content: 'Sorry — I encountered an error. Please try again.' }]);
-    } finally {
+    setTimeout(() => {
+      setMessages(prev => [...prev, { role: 'assistant', content: getAdvisorReply(userText) }]);
       setLoading(false);
-    }
+    }, 350);
   };
 
   const reset = () => setMessages([{ role: 'assistant', content: 'New session started. What can I help you grow today? 🌱' }]);
@@ -96,7 +88,7 @@ export default function AICoach() {
             <div className="ai-coach__hero-icon"><Sparkles size={28} /></div>
             <div>
               <h1>AI Harvest Advisor</h1>
-              <p>Faith-rooted homesteading guidance — garden planning, canning safety, chickens, soil, and more.</p>
+              <p>Faith-rooted homesteading guidance — garden planning, canning safety, chickens, soil, and preservation.</p>
             </div>
           </div>
         </div>
@@ -112,10 +104,10 @@ export default function AICoach() {
             </div>
           </div>
           <div className="card ai-coach__tips">
-            <h3 className="ai-coach__sidebar-title">Important Note</h3>
-            <p>The AI Harvest Advisor provides general guidance. For canning safety, always use <strong>USDA-tested recipes</strong> from the National Center for Home Food Preservation.</p>
-            <p style={{ marginTop: '0.5rem' }}>For regional questions, your local <strong>cooperative extension office</strong> is the most reliable resource.</p>
-            <p style={{ marginTop: '0.75rem', fontSize: '0.78rem', color: 'var(--text-muted)', fontStyle: 'italic' }}>Powered by Anthropic Claude.</p>
+            <h3 className="ai-coach__sidebar-title"><ShieldCheck size={16} /> Buyer-Safe Demo Mode</h3>
+            <p>This advisor works immediately without exposing API keys in the browser.</p>
+            <p style={{ marginTop: '0.5rem' }}>A buyer can later connect a secure serverless AI endpoint using Cloudflare Workers, Netlify Functions, or their own backend.</p>
+            <p style={{ marginTop: '0.75rem' }}><strong>Safety:</strong> For canning, verify with USDA-tested recipes. For animal health or local ordinances, use qualified local guidance.</p>
           </div>
         </div>
         <div className="ai-coach__chat card">
@@ -149,7 +141,7 @@ export default function AICoach() {
               rows={3}
               disabled={loading}
             />
-            <button className="ai-coach__send" onClick={() => send()} disabled={!input.trim() || loading}>
+            <button className="ai-coach__send" onClick={() => send()} disabled={!input.trim() || loading} aria-label="Send message">
               <Send size={18} />
             </button>
           </div>

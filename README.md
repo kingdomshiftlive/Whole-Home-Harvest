@@ -1,109 +1,142 @@
 # Whole Home Harvest
-## Complete Buyer Handoff Guide
 
-**Niche:** Faith-rooted homesteading — garden planning, canning, chickens, food preservation
-**Built with:** React + Vite | Cloudflare Pages ready | GitHub source included
-**Scripture:** "The Lord God took the man and put him in the Garden of Eden to work it and keep it." — Genesis 2:15
-**Domain to purchase:** wholehomeharvest.com
+**Whole Home Harvest** is a faith-rooted homesteading website built as a sellable digital asset. It includes educational content, practical tools, legal pages, SEO foundations, monetization placeholders, and buyer handoff documentation.
 
----
+**Live demo:** https://whole-home-harvest.pages.dev/  
+**Tech stack:** React + Vite + Cloudflare Pages  
+**Niche:** Homesteading, gardening, food preservation, backyard chickens, family preparedness, Christian stewardship
 
-## What You Just Bought
-
-Whole Home Harvest is a faith-rooted homesteading platform targeting the massive and growing homesteading market — 44% of US families now plan to grow their own food, a 24% increase since 2020.
-
-**The combination no competitor has:**
-- AI Harvest Advisor trained with Kingdom/biblical stewardship framework
-- Planting Calendar covering 14 common vegetables across all zones
-- Canning Safety Guide following USDA-tested methods
-- Growing Zones reference for all 8 major USDA zones
-- Kingdom Harvest Calendar — 12 months of biblical rhythms for the homestead
-- Kingdom Declaration Tool — 6 faith declarations for homesteaders
-- Community Prayer Board — homesteaders share harvest wins and prayers
-- 6 original blog articles (not AI-scraped)
-- 20+ affiliate partners researched with commission rates
+> “The Lord God took the man and put him in the Garden of Eden to work it and keep it.” — Genesis 2:15
 
 ---
 
-## IMMEDIATE NEXT STEPS
+## What is included
 
-### Step 1 — Connect Affiliate Links
-Replace URLs in `src/data/siteData.js` → `harvestCategories` array with your affiliate links:
-
-| Partner | Sign Up | Commission |
-|---|---|---|
-| Seeds Now | seedsnow.com/affiliates | 25% |
-| True Leaf Market | trueleafmarket.com/affiliates | 10% |
-| Eartheasy | eartheasy.com/affiliate | 8% |
-| Hoss Tools | hosstools.com/affiliates | 10% |
-| Homestead Honey | homesteadhoney.com | 40% |
-| Healing Harvest Homestead | healingharvesthomestead.com | 50% |
-| Grove Collaborative | grove.co/affiliates | $10-15/sale |
-| Mountain Rose Herbs | mountainroseherbs.com | 10% |
-
-### Step 2 — Connect Google AdSense
-AdSense placeholder boxes already placed. Add your publisher ID in `src/components/ui/AdSensePlaceholder.jsx`
-
-### Step 3 — Connect Newsletter
-Add Mailchimp form action URL in `src/components/sections/Newsletter.jsx` where it says `YOUR_MAILCHIMP_ACTION_URL`
-
-### Step 4 — Add AI API Key
-In Cloudflare Pages settings → Environment Variables → add `VITE_ANTHROPIC_API_KEY`
-
-### Step 5 — Register Domain
-Register `wholehomeharvest.com` at Namecheap or GoDaddy (~$12/yr). Add to Cloudflare Pages as custom domain.
+- React + Vite frontend
+- Home, About, Blog, Blog Post, Tools, Resources, FAQ, Contact, AI Advisor, and Legal pages
+- Buyer-safe demo AI Harvest Advisor
+- Planting calendar and growing-zone guidance
+- Canning and preservation guidance with safety disclaimers
+- Community board demo
+- Kingdom harvest calendar and declaration tool
+- Affiliate resource page structure
+- Newsletter capture demo mode
+- AdSense/sponsor placement components
+- Privacy Policy, Terms, Disclaimer, and Affiliate Disclosure
+- Sitemap, robots.txt, Cloudflare SPA redirects, and manifest
+- Buyer docs in `/docs`
 
 ---
 
-## How to Edit Content
+## Quick start
 
-**`src/data/siteData.js`** — affiliate partners, growing zones, canning guide, testimonials, FAQs
-**`src/data/blogPosts.js`** — all 6 blog posts
-**`src/data/calendarData.js`** — 12-month Kingdom harvest calendar
-**`src/data/declarationData.js`** — 6 faith declarations
+```bash
+npm install
+npm run dev
+```
 
----
+Production build:
 
-## How to Deploy
+```bash
+npm run build
+```
 
-1. Push to GitHub repo `kingdomshiftlive/kingdomshiftlive-whole-home-harvest`
-2. Connect to Cloudflare Pages
-3. Build command: `npm run build` | Output: `dist`
-4. Add environment variable `VITE_ANTHROPIC_API_KEY`
+Preview production build:
 
----
-
-## Transfer to Buyer
-
-1. GitHub: Settings → Transfer → enter buyer's GitHub username
-2. Cloudflare Pages: Settings → Transfer site
-3. Domain: Unlock at registrar, send auth code to buyer
-4. Affiliate accounts: NOT transferable — buyer signs up for their own
-5. Email list: Export CSV from Mailchimp, send to buyer
+```bash
+npm run preview
+```
 
 ---
 
-## Legal Protection
+## Cloudflare Pages deployment
 
-- Disclaimer in footer on every page
-- Full Disclaimer page — covers AI advice and canning safety
-- Terms of Use — protects original builder AND buyer after sale
-- Affiliate Disclosure — FTC compliant
-- Section 10 of Terms: original builder has no ongoing liability after transfer
+Use these settings:
 
----
+```text
+Framework preset: Vite
+Build command: npm run build
+Build output directory: dist
+Root directory: whole-home-harvest
+```
 
-## Revenue Projections
-
-| Traffic | Affiliate Est. | AdSense Est. | Total |
-|---|---|---|---|
-| 5,000/mo | $200-$500 | $40-$75 | $240-$575/mo |
-| 10,000/mo | $400-$1,000 | $80-$150 | $480-$1,150/mo |
-| 25,000/mo | $1,000-$2,500 | $200-$375 | $1,200-$2,875/mo |
-
-**Note:** Homesteading niche has very high AdSense CPMs ($8-$15/1,000 views) due to affluent audience.
+If the repository root is already the project folder, leave root directory blank.
 
 ---
 
-*Built by KingdomShift Media Corp*
-*"Tend the Earth. Feed Your Family. Honor God." — Genesis 2:15*
+## Buyer setup after purchase
+
+1. Replace affiliate links in `src/data/siteData.js`.
+2. Connect an email provider in `src/components/sections/Newsletter.jsx`.
+3. Add Google Analytics or Plausible if desired.
+4. Replace AdSense placeholder values in `src/components/ui/AdSensePlaceholder.jsx` after approval.
+5. Replace contact email in `src/data/siteData.js`, `src/pages/Contact.jsx`, and `src/pages/Legal.jsx`.
+6. Register or connect a custom domain.
+7. Update legal pages for the buyer’s business location and preferred policies.
+
+---
+
+## Important AI note
+
+The AI Harvest Advisor currently runs in **buyer-safe demo mode**. It gives helpful canned guidance without exposing API keys in the browser.
+
+For a real paid AI integration, the buyer should connect Claude, OpenAI, or another model through a secure backend endpoint such as:
+
+- Cloudflare Workers
+- Netlify Functions
+- Vercel Serverless Functions
+- A private API server
+
+Do **not** place private API keys directly in the frontend.
+
+---
+
+## Monetization paths
+
+See `docs/MONETIZATION_GUIDE.md` for details.
+
+The site is structured for:
+
+- Affiliate links
+- Display ads
+- Sponsored resource placements
+- Email list growth
+- Digital products and printables
+- Premium seasonal guides
+- Brand partnerships
+
+No revenue is guaranteed. Earnings depend on traffic, offers, conversion, SEO, and buyer execution.
+
+---
+
+## Safety and legal notes
+
+Whole Home Harvest provides general educational content only. Gardening, livestock, canning, and food preservation decisions can involve safety risks. Users should verify safety-critical information with USDA-tested recipes, cooperative extension offices, veterinarians, local laws, and qualified professionals.
+
+Legal pages are included as a starting point. A buyer should review them with appropriate counsel before operating commercially.
+
+---
+
+## Project structure
+
+```text
+src/components      Reusable UI, layout, newsletter, ads
+src/data            Blog posts, FAQs, affiliate resources, calendars
+src/pages           Route-level pages
+src/styles          Global styles and theme variables
+public              Static SEO/deployment files
+docs                Buyer handoff, monetization, transfer, and QA docs
+```
+
+---
+
+## Seller notes
+
+This project was prepared as a transferable digital asset. Before listing or handing off, run:
+
+```bash
+npm run build
+git status
+```
+
+The project should build cleanly and the working tree should be clean.

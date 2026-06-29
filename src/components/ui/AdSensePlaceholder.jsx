@@ -2,39 +2,34 @@ import { useEffect } from 'react';
 
 /**
  * ADSENSE INTEGRATION
- * 
- * TO ACTIVATE:
- * 1. Apply at google.com/adsense
- * 2. Once approved, replace YOUR-ADSENSE-CLIENT-ID with your ca-pub-XXXXXXXXXXXXXXXX
- * 3. Replace YOUR-AD-SLOT-ID with your actual ad slot IDs from AdSense dashboard
- * 4. Uncomment the script tag in index.html (instructions below)
- * 5. Push to GitHub — Netlify auto-deploys
- * 
- * IN index.html, add this inside <head> after approval:
- * <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR-PUBLISHER-ID" crossorigin="anonymous"></script>
+ * This component is intentionally buyer-safe. Until the buyer adds their
+ * own Google AdSense publisher ID and slot IDs, it displays branded ad-space
+ * placeholders instead of broken ad blocks.
+ *
+ * To activate:
+ * 1. Apply at google.com/adsense with the buyer's own Google account.
+ * 2. Replace ADSENSE_CLIENT with ca-pub-XXXXXXXXXXXXXXXX.
+ * 3. Replace slot IDs below with real AdSense slot IDs.
+ * 4. Add the AdSense script in index.html after approval.
  */
 
-const ADSENSE_CLIENT = 'YOUR-ADSENSE-CLIENT-ID'; // Replace: ca-pub-XXXXXXXXXXXXXXXX
+const ADSENSE_CLIENT = 'ADD-BUYER-ADSENSE-CLIENT-ID';
 const AD_SLOTS = {
-  banner: 'YOUR-AD-SLOT-ID',      // Replace with slot ID from AdSense
-  rectangle: 'YOUR-AD-SLOT-ID-2', // Replace with slot ID from AdSense
-  sidebar: 'YOUR-AD-SLOT-ID-3',   // Replace with slot ID from AdSense
+  banner: 'ADD-BANNER-SLOT-ID',
+  rectangle: 'ADD-RECTANGLE-SLOT-ID',
+  sidebar: 'ADD-SIDEBAR-SLOT-ID',
 };
 
 export default function AdSensePlaceholder({ slot = 'banner', style = {} }) {
-  const isConfigured = ADSENSE_CLIENT !== 'YOUR-ADSENSE-CLIENT-ID';
+  const isConfigured = ADSENSE_CLIENT.startsWith('ca-pub-');
 
   useEffect(() => {
     if (isConfigured && window.adsbygoogle) {
-      try {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-      } catch (e) {
-        console.log('AdSense:', e);
-      }
+      try { (window.adsbygoogle = window.adsbygoogle || []).push({}); }
+      catch (e) { console.log('AdSense:', e); }
     }
   }, [isConfigured]);
 
-  // Show placeholder until AdSense is configured
   if (!isConfigured) {
     return (
       <div style={{
@@ -48,7 +43,7 @@ export default function AdSensePlaceholder({ slot = 'banner', style = {} }) {
         margin: '1rem 0',
         ...style,
       }}>
-        📢 Ad Space — Connect Google AdSense (see README for instructions)
+        📢 Monetization Space — buyer can connect AdSense or sponsor placements here
       </div>
     );
   }
