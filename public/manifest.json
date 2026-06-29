@@ -1,11 +1,12 @@
 {
   "name": "Whole Home Harvest",
   "short_name": "Harvest",
-  "description": "Faith-rooted homesteading guides, planting tools, canning safety resources, and home food production support.",
+  "description": "A premium biblical homesteading and food self-sufficiency digital asset.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#3A6040",
+  "background_color": "#f6f0df",
+  "theme_color": "#5d9170",
   "orientation": "portrait-primary",
   "icons": [
     {
@@ -15,6 +16,10 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["education", "lifestyle", "food", "gardening"],
-  "lang": "en-US"
+  "categories": ["education", "lifestyle", "productivity"],
+  "shortcuts": [
+    { "name": "Tools", "url": "/tools", "description": "Open harvest planning tools" },
+    { "name": "AI Advisor", "url": "/ai-coach", "description": "Open the Kingdom harvest advisor" },
+    { "name": "Buyer Control", "url": "/admin-config", "description": "Open buyer configuration" }
+  ]
 }

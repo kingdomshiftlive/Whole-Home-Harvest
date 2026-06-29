@@ -164,3 +164,13 @@ Key buyer-facing value points:
 - Complete documentation and transfer package
 - Future-ready architecture for community, course, and mobile/PWA expansion
 
+## Final Release Notes
+
+This asset includes a PWA-ready manifest, optional service worker, branded 404 page, buyer control center, seller handoff documentation, and Flippa release checklist.
+
+Review before listing:
+- `docs/FINAL_RELEASE_PACKAGE.md`
+- `docs/FLIPPA_LISTING_CHECKLIST.md`
+- `docs/SELLER_HANDOFF.md`
+- `docs/BUYER_SUPPORT_BOUNDARIES.md`
+
