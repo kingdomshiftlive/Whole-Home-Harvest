@@ -1,0 +1,20 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0E1A12"/>
+  <circle cx="1010" cy="70" r="280" fill="#D8A94A" opacity="0.16"/>
+  <circle cx="145" cy="580" r="260" fill="#5D9170" opacity="0.22"/>
+  <rect x="78" y="70" width="1044" height="490" rx="44" fill="url(#g)" stroke="#D8A94A" stroke-opacity="0.34" stroke-width="2"/>
+  <path d="M213 211C250 164 311 146 365 172C409 193 431 233 439 275C489 252 548 264 587 304C628 345 637 406 611 454C573 522 477 543 394 502C327 470 276 404 230 334C202 292 189 241 213 211Z" fill="#5D9170" opacity="0.9"/>
+  <path d="M347 162C359 229 367 304 348 382C336 433 315 477 292 513" stroke="#F7E5AE" stroke-width="12" stroke-linecap="round"/>
+  <text x="520" y="214" fill="#F7E5AE" font-family="Georgia, serif" font-size="42" letter-spacing="4">PREMIUM DIGITAL ASSET</text>
+  <text x="520" y="305" fill="#FFFFFF" font-family="Georgia, serif" font-size="78" font-weight="700">Whole Home</text>
+  <text x="520" y="390" fill="#FFFFFF" font-family="Georgia, serif" font-size="78" font-weight="700">Harvest</text>
+  <text x="524" y="452" fill="#D8A94A" font-family="Arial, sans-serif" font-size="28" font-weight="700">AI • Homesteading • Buyer-Ready • Monetization Framework</text>
+  <text x="524" y="500" fill="#DDE9D7" font-family="Arial, sans-serif" font-size="25">Tend the Earth. Feed Your Family. Honor God.</text>
+  <defs>
+    <linearGradient id="g" x1="78" y1="70" x2="1122" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#16291A"/>
+      <stop offset="0.55" stop-color="#213821"/>
+      <stop offset="1" stop-color="#6D4B1D"/>
+    </linearGradient>
+  </defs>
+</svg>

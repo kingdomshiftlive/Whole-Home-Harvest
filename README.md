@@ -174,3 +174,14 @@ Review before listing:
 - `docs/SELLER_HANDOFF.md`
 - `docs/BUYER_SUPPORT_BOUNDARIES.md`
 
+## Version 1.0 Release Candidate
+
+Whole Home Harvest v1.0 includes the live website source code, Buyer Control Center, AI advisor framework, documentation package, monetization guide, transfer checklist, Flippa listing materials, and final release notes.
+
+See:
+- `docs/RELEASE_NOTES_V1.md`
+- `docs/FINAL_FLIPPA_LISTING_COPY.md`
+- `docs/SCREENSHOT_CHECKLIST.md`
+- `docs/SELLER_FINAL_CHECKLIST.md`
+- `release/START_HERE_FOR_BUYER.md`
+

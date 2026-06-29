@@ -1,12 +1,12 @@
 {
   "name": "Whole Home Harvest",
   "short_name": "Harvest",
-  "description": "A premium biblical homesteading and food self-sufficiency digital asset.",
+  "description": "Premium AI-guided homesteading and biblical stewardship platform.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#f6f0df",
-  "theme_color": "#5d9170",
+  "background_color": "#FBF7EE",
+  "theme_color": "#0E1A12",
   "orientation": "portrait-primary",
   "icons": [
     {
@@ -16,10 +16,26 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["education", "lifestyle", "productivity"],
+  "categories": [
+    "education",
+    "lifestyle",
+    "productivity"
+  ],
   "shortcuts": [
-    { "name": "Tools", "url": "/tools", "description": "Open harvest planning tools" },
-    { "name": "AI Advisor", "url": "/ai-coach", "description": "Open the Kingdom harvest advisor" },
-    { "name": "Buyer Control", "url": "/admin-config", "description": "Open buyer configuration" }
+    {
+      "name": "Tools",
+      "url": "/tools",
+      "description": "Open harvest planning tools"
+    },
+    {
+      "name": "AI Advisor",
+      "url": "/ai-coach",
+      "description": "Open the Kingdom harvest advisor"
+    },
+    {
+      "name": "Buyer Control",
+      "url": "/admin-config",
+      "description": "Open buyer configuration"
+    }
   ]
 }
