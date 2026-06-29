@@ -20,7 +20,7 @@ export default function Blog() {
       <div className="blog-page__hero">
         <div className="container">
           <h1>Kingdom Pet Blog</h1>
-          <p>Practical wisdom, encouragement, and real strategies for the pet care journey.</p>
+          <p>Practical wisdom, encouragement, and real strategies for the homesteading journey.</p>
         </div>
       </div>
 

@@ -1,17 +1,11 @@
 import { useState, useEffect } from 'react';
 import toast from 'react-hot-toast';
 import SEOHead from '../components/ui/SEOHead';
-import { Mail, MessageSquare, Clock, Send, MapPin, Phone } from 'lucide-react';
+import { Mail, MessageSquare, Clock, Send } from 'lucide-react';
 import './Contact.css';
 
-const TOPICS = [
-  'General Question',
-  'Technical Support',
-  'Coaching Inquiry',
-  'Partnership / Collaboration',
-  'Press / Media',
-  'Other',
-];
+const CONTACT_EMAIL = 'hello@wholehomeharvest.com';
+const TOPICS = ['General Question', 'Gardening Question', 'Canning / Food Preservation', 'Partnership / Collaboration', 'Buyer / Transfer Question', 'Other'];
 
 const validate = (fields) => {
   const errs = {};
@@ -27,7 +21,6 @@ const validate = (fields) => {
 export default function Contact() {
   const [fields, setFields] = useState({ name: '', email: '', topic: '', message: '' });
   const [errors, setErrors] = useState({});
-  const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -38,175 +31,46 @@ export default function Contact() {
     if (errors[name]) setErrors(e => ({ ...e, [name]: null }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const errs = validate(fields);
-    if (Object.keys(errs).length > 0) {
-      setErrors(errs);
-      toast.error('Please fix the errors below.');
-      return;
-    }
-    setLoading(true);
-    // Simulate async submission (replace with real API call)
-    await new Promise(res => setTimeout(res, 1600));
-    setLoading(false);
+    if (Object.keys(errs).length > 0) { setErrors(errs); toast.error('Please fix the errors below.'); return; }
+    const subject = encodeURIComponent(`Whole Home Harvest: ${fields.topic}`);
+    const body = encodeURIComponent(`Name: ${fields.name}\nEmail: ${fields.email}\nTopic: ${fields.topic}\n\nMessage:\n${fields.message}`);
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
     setSent(true);
-    toast.success('Message sent! We\'ll be in touch within 48 hours.');
+    toast.success('Your email app should open now.');
   };
 
   return (
     <>
-      <SEOHead
-        title="Contact Us — Pet Grace"
-        description="Have a question about pets and homesteading? Reach out to the Pet Grace team. We'd love to hear from you."
-        canonical="/contact"
-      />
+      <SEOHead title="Contact Us" description="Contact Whole Home Harvest for homesteading questions, partnership inquiries, and buyer support." canonical="/contact" />
       <div className="contact-page">
-        {/* Hero */}
-        <section className="contact-hero">
-          <div className="container">
-            <span className="section-label">Get in Touch</span>
-            <h1>We'd Love to <span className="text-gold">Hear From You</span></h1>
-            <p>Whether you have a question, partnership idea, or just want to say hello — we read every message.</p>
+        <section className="contact-hero"><div className="container"><span className="section-label">Get in Touch</span><h1>We'd Love to <span className="text-gold">Hear From You</span></h1><p>Questions, partnership ideas, or buyer setup support — send a note and the owner can respond directly.</p></div></section>
+        <section className="contact-main"><div className="container"><div className="contact-grid">
+          <aside className="contact-info">
+            <h2>Let's Connect</h2><p>For faster answers, check the <a href="/faq">FAQ page</a> or use the form to open your email app.</p>
+            <div className="contact-item"><div className="contact-icon"><Mail size={20} /></div><div><strong>Email</strong><span>{CONTACT_EMAIL}</span></div></div>
+            <div className="contact-item"><div className="contact-icon"><Clock size={20} /></div><div><strong>Response Time</strong><span>1–2 business days after launch</span></div></div>
+            <div className="contact-item"><div className="contact-icon"><MessageSquare size={20} /></div><div><strong>Newsletter</strong><span>Weekly garden, pantry, and stewardship encouragement</span></div></div>
+            <div className="contact-scripture"><p>“The plans of the diligent lead surely to abundance.”</p><cite>— Proverbs 21:5</cite></div>
+          </aside>
+          <div className="contact-form-wrap">
+            {sent ? <div className="form-success"><div className="success-icon">✓</div><h2>Email Ready</h2><p>Your email app should have opened with the message prepared. Send it from there, or copy the details and email us directly.</p><button className="btn btn-primary" onClick={() => { setSent(false); setFields({ name: '', email: '', topic: '', message: '' }); }}>Send Another Message</button></div> : (
+              <form className="contact-form" onSubmit={handleSubmit} noValidate>
+                <h2>Send a Message</h2>
+                <div className="form-row">
+                  <div className={`form-group ${errors.name ? 'has-error' : ''}`}><label htmlFor="name">Full Name *</label><input type="text" id="name" name="name" value={fields.name} onChange={handleChange} placeholder="Jane Smith" autoComplete="name" />{errors.name && <span className="field-error">{errors.name}</span>}</div>
+                  <div className={`form-group ${errors.email ? 'has-error' : ''}`}><label htmlFor="email">Email Address *</label><input type="email" id="email" name="email" value={fields.email} onChange={handleChange} placeholder="jane@example.com" autoComplete="email" />{errors.email && <span className="field-error">{errors.email}</span>}</div>
+                </div>
+                <div className={`form-group ${errors.topic ? 'has-error' : ''}`}><label htmlFor="topic">Topic *</label><select id="topic" name="topic" value={fields.topic} onChange={handleChange}><option value="">Select a topic…</option>{TOPICS.map(t => <option key={t} value={t}>{t}</option>)}</select>{errors.topic && <span className="field-error">{errors.topic}</span>}</div>
+                <div className={`form-group ${errors.message ? 'has-error' : ''}`}><label htmlFor="message">Message *</label><textarea id="message" name="message" rows={6} value={fields.message} onChange={handleChange} placeholder="Tell us how we can help with your homestead, garden, pantry, or partnership question…" /><span className="char-count">{fields.message.length} characters</span>{errors.message && <span className="field-error">{errors.message}</span>}</div>
+                <button type="submit" className="btn btn-primary btn-full"><span><Send size={16} style={{ marginRight: '0.5rem' }} />Open Email App</span></button>
+                <p className="form-note">This static site uses mailto by default. The buyer can connect Formspree, Netlify Forms, Cloudflare Workers, or a CRM form later.</p>
+              </form>
+            )}
           </div>
-        </section>
-
-        {/* Info + Form */}
-        <section className="contact-main">
-          <div className="container">
-            <div className="contact-grid">
-              {/* Info Sidebar */}
-              <aside className="contact-info">
-                <h2>Let's Connect</h2>
-                <p>Our team typically responds within 1–2 business days. For faster answers, check our <a href="/faq">FAQ page</a>.</p>
-
-                <div className="contact-item">
-                  <div className="contact-icon"><Mail size={20} /></div>
-                  <div>
-                    <strong>Email Us</strong>
-                    <span>hello@faithwealthblueprint.com</span>
-                  </div>
-                </div>
-                <div className="contact-item">
-                  <div className="contact-icon"><Clock size={20} /></div>
-                  <div>
-                    <strong>Response Time</strong>
-                    <span>1–2 business days</span>
-                  </div>
-                </div>
-                <div className="contact-item">
-                  <div className="contact-icon"><MessageSquare size={20} /></div>
-                  <div>
-                    <strong>Community</strong>
-                    <span>Join our free newsletter for weekly homesteading encouragement and resources</span>
-                  </div>
-                </div>
-
-                <div className="contact-scripture">
-                  <p>
-                    "The plans of the diligent lead surely to abundance, but everyone who is hasty comes only to poverty."
-                  </p>
-                  <cite>— Proverbs 21:5</cite>
-                </div>
-
-                <div className="contact-social">
-                  <h4>Follow Along</h4>
-                  <div className="social-links">
-                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-btn">Twitter</a>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-btn">Instagram</a>
-                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="social-btn">YouTube</a>
-                  </div>
-                </div>
-              </aside>
-
-              {/* Form */}
-              <div className="contact-form-wrap">
-                {sent ? (
-                  <div className="form-success">
-                    <div className="success-icon">✓</div>
-                    <h2>Message Received!</h2>
-                    <p>
-                      Thank you for reaching out. We'll review your message and get back to you 
-                      within 1–2 business days. In the meantime, check out our{' '}
-                      <a href="/blog">blog</a> or <a href="/faq">FAQ</a>.
-                    </p>
-                    <button className="btn btn-primary" onClick={() => { setSent(false); setFields({ name: '', email: '', topic: '', message: '' }); }}>
-                      Send Another Message
-                    </button>
-                  </div>
-                ) : (
-                  <form className="contact-form" onSubmit={handleSubmit} noValidate>
-                    <h2>Send a Message</h2>
-
-                    <div className="form-row">
-                      <div className={`form-group ${errors.name ? 'has-error' : ''}`}>
-                        <label htmlFor="name">Full Name *</label>
-                        <input
-                          type="text"
-                          id="name"
-                          name="name"
-                          value={fields.name}
-                          onChange={handleChange}
-                          placeholder="Jane Smith"
-                          autoComplete="name"
-                        />
-                        {errors.name && <span className="field-error">{errors.name}</span>}
-                      </div>
-                      <div className={`form-group ${errors.email ? 'has-error' : ''}`}>
-                        <label htmlFor="email">Email Address *</label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          value={fields.email}
-                          onChange={handleChange}
-                          placeholder="jane@example.com"
-                          autoComplete="email"
-                        />
-                        {errors.email && <span className="field-error">{errors.email}</span>}
-                      </div>
-                    </div>
-
-                    <div className={`form-group ${errors.topic ? 'has-error' : ''}`}>
-                      <label htmlFor="topic">Topic *</label>
-                      <select id="topic" name="topic" value={fields.topic} onChange={handleChange}>
-                        <option value="">Select a topic…</option>
-                        {TOPICS.map(t => <option key={t} value={t}>{t}</option>)}
-                      </select>
-                      {errors.topic && <span className="field-error">{errors.topic}</span>}
-                    </div>
-
-                    <div className={`form-group ${errors.message ? 'has-error' : ''}`}>
-                      <label htmlFor="message">Message *</label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        rows={6}
-                        value={fields.message}
-                        onChange={handleChange}
-                        placeholder="Tell us how we can help you and your pet family…"
-                      />
-                      <span className="char-count">{fields.message.length} characters</span>
-                      {errors.message && <span className="field-error">{errors.message}</span>}
-                    </div>
-
-                    <button type="submit" className="btn btn-primary btn-full" disabled={loading}>
-                      {loading ? (
-                        <span className="btn-loading"><span className="spinner-sm" /> Sending…</span>
-                      ) : (
-                        <span><Send size={16} style={{ marginRight: '0.5rem' }} />Send Message</span>
-                      )}
-                    </button>
-
-                    <p className="form-note">
-                      We respect your privacy. Your information is never shared with third parties.
-                    </p>
-                  </form>
-                )}
-              </div>
-            </div>
-          </div>
-        </section>
+        </div></div></section>
       </div>
     </>
   );

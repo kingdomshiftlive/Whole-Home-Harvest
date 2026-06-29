@@ -1,80 +1,29 @@
 import { Link } from 'react-router-dom';
-import { Calculator, BookOpen, Bot, Download, TrendingUp, Heart } from 'lucide-react';
+import { Sprout, BookOpen, Bot, Download, CalendarDays, Heart } from 'lucide-react';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
 import './Features.css';
 
 const features = [
-  {
-    icon: Calculator,
-    color: 'gold',
-    title: '6 Financial Calculators',
-    description: 'Budget, debt payoff, savings, emergency fund, net worth, and cash flow — all with real math and instant results.',
-    link: '/tools',
-    linkLabel: 'Use Free Tools',
-  },
-  {
-    icon: BookOpen,
-    color: 'navy',
-    title: 'Biblical Finance Blog',
-    description: 'Practical articles on getting started, scheduling, pet care, faith integration, high school prep, and avoiding burnout.',
-    link: '/blog',
-    linkLabel: 'Read Articles',
-  },
-  {
-    icon: Bot,
-    color: 'green',
-    title: 'AI Stewardship Coach',
-    description: 'Generate complete faith-integrated pet advices tailored to your child's grade and learning style.',
-    link: '/ai-coach',
-    linkLabel: 'Meet the Coach',
-  },
-  {
-    icon: Download,
-    color: 'gold',
-    title: 'Free Resource Library',
-    description: 'Download budget worksheets, debt trackers, savings planners, and curated book and tool recommendations.',
-    link: '/resources',
-    linkLabel: 'Get Resources',
-  },
-  {
-    icon: TrendingUp,
-    color: 'navy',
-    title: 'Wealth Building Framework',
-    description: 'The Kingdom 10-20-70 system: tithe first, build next, live on the rest. A framework for every income level.',
-    link: '/blog',
-    linkLabel: 'Learn the System',
-  },
-  {
-    icon: Heart,
-    color: 'green',
-    title: 'Faith-Integrated Approach',
-    description: 'No prosperity gospel. No poverty theology. Just honest, Scripture-grounded financial education for modern believers.',
-    link: '/about',
-    linkLabel: 'Our Approach',
-  },
+  { icon: Sprout, color: 'green', title: 'Planting Calendar', description: 'Seed starting, transplanting, direct sowing, and harvest timing for common backyard crops.', link: '/tools', linkLabel: 'Use the Calendar' },
+  { icon: BookOpen, color: 'gold', title: 'Canning Safety Guide', description: 'Clear water bath vs. pressure canning guidance with safety-first reminders and trusted source recommendations.', link: '/tools', linkLabel: 'View Canning Guide' },
+  { icon: Bot, color: 'navy', title: 'AI Harvest Advisor', description: 'A homesteading assistant for garden plans, pantry questions, pests, backyard chickens, and stewardship ideas.', link: '/ai-coach', linkLabel: 'Ask the Advisor' },
+  { icon: Download, color: 'gold', title: 'Resource Library', description: 'Curated supply lists, garden planning ideas, preservation references, and beginner-friendly next steps.', link: '/resources', linkLabel: 'Browse Resources' },
+  { icon: CalendarDays, color: 'green', title: 'Kingdom Harvest Calendar', description: 'A 12-month rhythm for tending the garden, building the pantry, and honoring God through stewardship.', link: '/tools', linkLabel: 'Open Calendar' },
+  { icon: Heart, color: 'navy', title: 'Faith-Rooted Approach', description: 'Practical homesteading without fear or hype — rooted in stewardship, family provision, patience, and wisdom.', link: '/about', linkLabel: 'Our Approach' },
 ];
 
 export default function Features() {
   const ref = useScrollReveal();
-
   return (
     <section className="features section bg-subtle" aria-label="Features">
       <div className="container">
         <div className="section-header centered text-center" ref={ref}>
           <span className="section-eyebrow">What's Inside</span>
-          <h2 className="section-title">
-            Everything You Need to Build <em>Kingdom Wealth</em>
-          </h2>
-          <p className="section-subtitle">
-            Practical tools. Faith-rooted content. No fluff. Pet Grace gives you
-            the complete system to transform your financial life.
-          </p>
+          <h2 className="section-title">Everything You Need to Start a <em>Whole Home Harvest</em></h2>
+          <p className="section-subtitle">Practical tools, faith-rooted guidance, and beginner-friendly resources for growing, preserving, and stewarding well.</p>
         </div>
-
         <div className="features__grid">
-          {features.map((feature, i) => (
-            <FeatureCard key={feature.title} feature={feature} delay={i} />
-          ))}
+          {features.map((feature, i) => <FeatureCard key={feature.title} feature={feature} delay={i} />)}
         </div>
       </div>
     </section>
@@ -84,20 +33,12 @@ export default function Features() {
 function FeatureCard({ feature, delay }) {
   const ref = useScrollReveal();
   const { icon: Icon, color, title, description, link, linkLabel } = feature;
-
   return (
-    <div
-      className={`feature-card card card-gold-border reveal reveal-delay-${(delay % 4) + 1}`}
-      ref={ref}
-    >
-      <div className={`feature-card__icon feature-card__icon--${color}`}>
-        <Icon size={22} />
-      </div>
+    <div className={`feature-card card card-gold-border reveal reveal-delay-${(delay % 4) + 1}`} ref={ref}>
+      <div className={`feature-card__icon feature-card__icon--${color}`}><Icon size={22} /></div>
       <h3 className="feature-card__title">{title}</h3>
       <p className="feature-card__desc">{description}</p>
-      <Link to={link} className="feature-card__link">
-        {linkLabel} →
-      </Link>
+      <Link to={link} className="feature-card__link">{linkLabel} →</Link>
     </div>
   );
 }

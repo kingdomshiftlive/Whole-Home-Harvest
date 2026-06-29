@@ -19,7 +19,7 @@ export default function FAQ() {
     <>
       <SEOHead
         title="FAQ — Pet Grace"
-        description="Answers to common questions about homesteading, homesteading grief, the AI Pet Advisor, and our resources."
+        description="Answers to common questions about homesteading, growing food, canning safety, the AI Harvest Advisor, and Whole Home Harvest resources."
         canonical="/faq"
       />
       <div className="faq-page">
@@ -27,7 +27,7 @@ export default function FAQ() {
           <div className="container">
             <span className="section-label">Got Questions?</span>
             <h1>Frequently Asked <span className="text-gold">Questions</span></h1>
-            <p>Everything you need to know about Pet Grace and caring for your pet family.</p>
+            <p>Everything you need to know about Whole Home Harvest, beginner homesteading, planting, preserving, and stewardship.</p>
             <div className="faq-search">
               <input
                 type="search"
