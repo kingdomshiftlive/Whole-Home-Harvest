@@ -1,3 +1,6 @@
+@import '../components/ui/CommunityBoard.css';
+@import '../components/ui/KingdomCalendar.css';
+
 .tools-page__hero {
   background: linear-gradient(135deg, #5a2e1a, #2a3e2a);
   color: white; padding: 3rem 0; text-align: center;
@@ -83,8 +86,8 @@
   .book-card { flex-direction: column; align-items: flex-start; }
 }
 
-@import '../components/ui/CommunityBoard.css';
-@import '../components/ui/KingdomCalendar.css';
+
+
 
 .harvest-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
 .harvest-table th { background: var(--bg-secondary); padding: 0.75rem 1rem; text-align: left; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); border-bottom: 2px solid var(--border-medium); }
