@@ -1,0 +1,82 @@
+/* =============================================
+   WHOLE HOME HARVEST — Design Tokens
+   Earthy, warm, natural — harvest colors
+   ============================================= */
+:root {
+  --harvest-400: #C4923A;
+  --harvest-500: #A67828;
+  --harvest-600: #8A6020;
+  --harvest-700: #6A4818;
+
+  --forest-400: #5A8A4A;
+  --forest-500: #426E34;
+  --forest-600: #325828;
+  --forest-700: #244018;
+
+  --soil-400: #8A6A4A;
+  --soil-500: #6E5238;
+  --soil-600: #583E28;
+  --soil-700: #402C18;
+
+  --cream: #FAF6EE;
+  --cream-dark: #F0E8D8;
+
+  --bg-primary: #FDFAF4;
+  --bg-secondary: #FAF6EE;
+  --bg-tertiary: #F0E8D8;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fdfaf5;
+
+  --text-primary: #1E1A0E;
+  --text-secondary: #4A3E28;
+  --text-muted: #8A7A5A;
+  --text-inverse: #ffffff;
+
+  --border-light: #E8DCC8;
+  --border-medium: #D8C8A8;
+  --border-color: #E8DCC8;
+
+  --accent-primary: #A67828;
+  --accent-primary-dark: #8A6020;
+  --accent-secondary: #426E34;
+  --accent-amber: #C4923A;
+
+  --shadow-sm: 0 1px 3px rgba(166,120,40,0.08);
+  --shadow-md: 0 4px 16px rgba(166,120,40,0.12);
+  --shadow-lg: 0 10px 40px rgba(166,120,40,0.16);
+  --shadow-xl: 0 20px 60px rgba(166,120,40,0.20);
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+
+  --max-width: 1200px;
+  --nav-height: 72px;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #1A160A;
+  --bg-secondary: #241E0E;
+  --bg-tertiary: #2E2614;
+  --bg-card: #241E0E;
+  --bg-card-hover: #2E2614;
+  --text-primary: #F0E8D8;
+  --text-secondary: #C8B888;
+  --text-muted: #8A7A5A;
+  --border-light: #3A2E18;
+  --border-medium: #4A3E28;
+  --border-color: #3A2E18;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.35);
+  --shadow-lg: 0 10px 40px rgba(0,0,0,0.4);
+  --shadow-xl: 0 20px 60px rgba(0,0,0,0.5);
+}

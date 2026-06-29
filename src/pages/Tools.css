@@ -1,0 +1,93 @@
+.tools-page__hero {
+  background: linear-gradient(135deg, #5a2e1a, #2a3e2a);
+  color: white; padding: 3rem 0; text-align: center;
+}
+.tools-page__hero h1 { font-family: var(--font-display); font-size: 2.2rem; margin-bottom: 0.5rem; }
+.tools-page__hero p { color: rgba(255,255,255,0.78); font-size: 1.05rem; }
+
+.tools-page__tabs {
+  display: flex; gap: 0.5rem; padding: 2rem 0 0; flex-wrap: wrap;
+  border-bottom: 2px solid var(--border-light); margin-bottom: 2rem;
+}
+.tools-page__tab {
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.75rem 1.25rem; background: none; border: 2px solid transparent;
+  border-bottom: none; border-radius: var(--radius-md) var(--radius-md) 0 0;
+  font-size: 0.85rem; font-weight: 600; color: var(--text-muted); cursor: pointer;
+  transition: all var(--transition-base); margin-bottom: -2px;
+}
+.tools-page__tab:hover { color: var(--accent-primary); }
+.tools-page__tab--active {
+  color: var(--accent-primary); border-color: var(--border-medium);
+  background: var(--bg-card); border-bottom-color: var(--bg-card);
+}
+.tools-page__panel { padding-bottom: 3rem; }
+.tools-page__panel-header { margin-bottom: 2rem; }
+.tools-page__panel-header h2 { font-family: var(--font-display); font-size: 1.6rem; margin-bottom: 0.5rem; color: var(--text-primary); }
+.tools-page__panel-header p { color: var(--text-secondary); font-size: 0.95rem; }
+
+.grief-stages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 2rem; }
+.grief-stage-card { padding: 1.5rem; }
+.grief-stage-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+.grief-stage-icon { font-size: 1.75rem; }
+.grief-stage-title { font-family: var(--font-display); font-size: 1rem; color: var(--text-primary); }
+.grief-stage-desc { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 0.875rem; }
+.grief-stage-support { font-size: 0.82rem; color: var(--accent-primary); font-style: italic; padding-top: 0.75rem; border-top: 1px solid var(--border-light); }
+.grief-reminder { padding: 1.5rem; background: var(--bg-secondary); }
+.grief-reminder h3 { font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text-primary); }
+.grief-reminder p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
+
+.quality-form { display: flex; flex-direction: column; gap: 1rem; }
+.quality-question { padding: 1.25rem; }
+.quality-question-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem; }
+.quality-question-header strong { font-size: 0.9rem; color: var(--text-primary); }
+.quality-score-display { font-size: 1.1rem; font-weight: 700; color: var(--accent-primary); }
+.quality-question p { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.75rem; }
+.quality-slider { width: 100%; accent-color: var(--accent-primary); margin-bottom: 0.25rem; }
+.quality-slider-labels { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); }
+.quality-result { padding: 1.5rem; margin-top: 1rem; }
+.quality-result--good { border-left: 4px solid var(--sage-500, #5C8A5C); }
+.quality-result--concern { border-left: 4px solid var(--terra-500, #B8684A); }
+.quality-result h3 { font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 0.75rem; color: var(--text-primary); }
+.quality-result p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 0.5rem; }
+
+.memorial-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
+.memorial-card { padding: 1.25rem; display: flex; flex-direction: column; gap: 0.5rem; text-align: center; }
+.memorial-emoji { font-size: 2rem; }
+.memorial-card h3 { font-size: 0.9rem; font-weight: 700; color: var(--text-primary); }
+.memorial-card p { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.6; flex: 1; }
+.memorial-cost { font-size: 0.75rem; font-weight: 600; color: var(--accent-primary); margin-top: auto; }
+
+.books-list { display: flex; flex-direction: column; gap: 1rem; }
+.book-card { padding: 1.25rem 1.5rem; display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; }
+.book-card-content { flex: 1; }
+.book-card h3 { font-family: var(--font-display); font-size: 1rem; color: var(--text-primary); margin-bottom: 0.2rem; }
+.book-author { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.4rem; font-style: italic; }
+.book-desc { font-size: 0.85rem; color: var(--text-secondary); }
+
+.hotlines-list { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem; }
+.hotline-card { padding: 1.25rem 1.5rem; }
+.hotline-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; }
+.hotline-card h3 { font-family: var(--font-display); font-size: 1rem; color: var(--text-primary); margin-bottom: 0.2rem; }
+.hotline-number { font-size: 1.1rem; font-weight: 700; color: var(--accent-primary); }
+.hotline-hours { font-size: 0.78rem; color: var(--text-muted); white-space: nowrap; }
+.hotline-card p { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem; }
+.hotline-link { font-size: 0.82rem; color: var(--accent-primary); font-weight: 600; text-decoration: none; }
+.hotline-note { padding: 1.25rem 1.5rem; background: var(--bg-secondary); }
+.hotline-note p { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.7; margin: 0; }
+
+@media (max-width: 1000px) { .memorial-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 768px) {
+  .grief-stages-grid { grid-template-columns: 1fr; }
+  .memorial-grid { grid-template-columns: repeat(2, 1fr); }
+  .book-card { flex-direction: column; align-items: flex-start; }
+}
+
+@import '../components/ui/CommunityBoard.css';
+@import '../components/ui/KingdomCalendar.css';
+
+.harvest-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.harvest-table th { background: var(--bg-secondary); padding: 0.75rem 1rem; text-align: left; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); border-bottom: 2px solid var(--border-medium); }
+.harvest-table td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border-light); color: var(--text-secondary); }
+.harvest-table tr:hover td { background: var(--bg-secondary); }
+.harvest-table td strong { color: var(--text-primary); }

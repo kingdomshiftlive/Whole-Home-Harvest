@@ -1,0 +1,90 @@
+.site-notice__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.site-notice__box {
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  max-width: 520px;
+  width: 100%;
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  animation: slideUp 0.3s ease;
+}
+@keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+.site-notice__header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  background: rgba(184,104,74,0.08);
+  border-bottom: 1px solid rgba(184,104,74,0.2);
+}
+.site-notice__icon {
+  width: 40px; height: 40px;
+  background: rgba(184,104,74,0.15);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent-primary);
+  flex-shrink: 0;
+}
+.site-notice__header h2 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  flex: 1;
+  margin: 0;
+}
+.site-notice__close {
+  background: none; border: none;
+  color: var(--text-muted); cursor: pointer;
+  padding: 0.25rem;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast);
+}
+.site-notice__close:hover { color: var(--text-primary); }
+
+.site-notice__body {
+  padding: 1.5rem;
+}
+.site-notice__body p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 0.75rem; }
+.site-notice__body ul {
+  padding-left: 1.25rem;
+  margin: 0 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.site-notice__body li { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5; }
+.site-notice__key {
+  background: rgba(184,104,74,0.08);
+  border-left: 3px solid var(--accent-primary);
+  padding: 0.75rem 1rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 0.875rem !important;
+  color: var(--text-primary) !important;
+}
+.site-notice__mental {
+  font-size: 0.82rem !important;
+  color: var(--text-muted) !important;
+  margin-top: 0.75rem !important;
+}
+
+.site-notice__footer {
+  padding: 1.25rem 1.5rem;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-light);
+}
+.site-notice__footer p { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.875rem; line-height: 1.6; }
+.site-notice__footer a { color: var(--accent-primary); }
+.site-notice__btn { width: 100%; }

@@ -1,0 +1,59 @@
+.whh-home__hero { background: linear-gradient(135deg, #1a2e10 0%, #2e1a08 100%); color: white; padding: 5rem 0 4rem; position: relative; overflow: hidden; }
+.whh-home__hero::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/svg%3E"); }
+.whh-home__hero-inner { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; position: relative; z-index: 1; }
+.whh-home__hero-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: #d4c8a8; padding: 0.4rem 1rem; border-radius: var(--radius-full); font-size: 0.8rem; font-weight: 500; margin-bottom: 1.5rem; }
+.whh-home__hero-title { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; line-height: 1.2; margin-bottom: 1.25rem; color: white; }
+.whh-home__hero-accent { color: var(--harvest-400, #C4923A); }
+.whh-home__hero-sub { font-size: 1.05rem; line-height: 1.75; color: rgba(255,255,255,0.82); margin-bottom: 2rem; max-width: 520px; }
+.whh-home__hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.75rem; }
+.whh-home__hero-scripture { font-size: 0.85rem; color: rgba(255,255,255,0.55); font-style: italic; }
+.whh-home__hero-cards { display: flex; flex-direction: column; gap: 1rem; }
+.whh-home__hero-card { display: flex; align-items: flex-start; gap: 1rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius-lg); padding: 1.25rem; }
+.whh-home__hero-card-icon { font-size: 1.75rem; flex-shrink: 0; }
+.whh-home__hero-card strong { display: block; font-size: 0.9rem; color: white; margin-bottom: 0.25rem; }
+.whh-home__hero-card p { font-size: 0.82rem; color: rgba(255,255,255,0.72); margin: 0; line-height: 1.5; }
+.whh-home__stats { background: var(--bg-secondary); border-bottom: 1px solid var(--border-light); padding: 2.5rem 0; }
+.whh-home__stats-inner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; }
+.whh-home__stat-num { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--accent-primary); line-height: 1; margin-bottom: 0.3rem; }
+.whh-home__stat-label { font-size: 0.85rem; color: var(--text-muted); }
+.whh-home__features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.whh-home__feature-card { padding: 1.75rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.whh-home__feature-icon { width: 52px; height: 52px; background: rgba(166,120,40,0.1); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: var(--accent-primary); border: 1px solid rgba(166,120,40,0.2); }
+.whh-home__feature-card h3 { font-family: var(--font-display); font-size: 1.05rem; color: var(--text-primary); }
+.whh-home__feature-card p { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65; flex: 1; }
+.whh-home__feature-link { display: inline-flex; align-items: center; gap: 0.3rem; color: var(--accent-primary); font-weight: 600; font-size: 0.875rem; text-decoration: none; margin-top: auto; }
+.whh-home__biblical { background: var(--bg-secondary); }
+.whh-home__biblical-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.whh-home__biblical h2 { font-family: var(--font-display); font-size: 2rem; margin-bottom: 1rem; color: var(--text-primary); }
+.whh-home__biblical-lead { font-size: 1.05rem; line-height: 1.75; color: var(--text-secondary); margin-bottom: 1.75rem; }
+.whh-home__biblical-list { list-style: none; padding: 0; margin: 0 0 2rem; display: flex; flex-direction: column; gap: 0.65rem; }
+.whh-home__biblical-item { display: flex; align-items: flex-start; gap: 0.65rem; }
+.whh-home__biblical-check { color: var(--accent-secondary); flex-shrink: 0; margin-top: 2px; }
+.whh-home__biblical-item span { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; }
+.whh-home__biblical-quote { background: linear-gradient(135deg, #244018, #6A4818); border-radius: var(--radius-lg); padding: 2rem; margin-bottom: 1.5rem; }
+.whh-home__biblical-quote blockquote { color: rgba(255,255,255,0.9); font-style: italic; font-size: 1.05rem; line-height: 1.8; margin: 0 0 0.5rem; font-family: var(--font-display); }
+.whh-home__biblical-quote cite { font-size: 0.82rem; color: rgba(255,255,255,0.6); font-style: normal; }
+.whh-home__seasons { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.whh-home__season-tag { padding: 0.35rem 0.9rem; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-full); font-size: 0.8rem; color: var(--text-secondary); }
+.whh-home__testimonials-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.whh-home__testimonial { padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.whh-home__testimonial-stars { display: flex; gap: 0.2rem; color: var(--harvest-400, #C4923A); }
+.whh-home__testimonial p { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.7; flex: 1; font-style: italic; }
+.whh-home__testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
+.whh-home__testimonial-avatar { width: 38px; height: 38px; background: linear-gradient(135deg, var(--harvest-500), var(--forest-600)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.75rem; flex-shrink: 0; }
+.whh-home__testimonial-name { font-weight: 600; font-size: 0.85rem; color: var(--text-primary); }
+.whh-home__testimonial-role { font-size: 0.75rem; color: var(--text-muted); }
+.whh-home__blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+.whh-home__blog-card { padding: 1.75rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.whh-home__blog-category { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-primary); }
+.whh-home__blog-card h3 { font-family: var(--font-display); font-size: 1.05rem; color: var(--text-primary); line-height: 1.45; }
+.whh-home__blog-card p { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65; flex: 1; }
+.whh-home__blog-meta { display: flex; justify-content: space-between; align-items: center; padding-top: 0.75rem; border-top: 1px solid var(--border-light); font-size: 0.8rem; color: var(--text-muted); }
+.whh-home__blog-link { display: flex; align-items: center; gap: 0.3rem; color: var(--accent-primary); font-weight: 600; text-decoration: none; }
+.whh-home__cta { background: linear-gradient(135deg, #1a2e10, #2e1a08); color: white; padding: 4rem 0; }
+.whh-home__cta-inner { text-align: center; }
+.whh-home__cta h2 { font-family: var(--font-display); font-size: 2rem; margin-bottom: 1rem; }
+.whh-home__cta p { font-size: 1.05rem; color: rgba(255,255,255,0.78); max-width: 560px; margin: 0 auto 2rem; line-height: 1.7; }
+.whh-home__cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+@media (max-width: 1100px) { .whh-home__features-grid { grid-template-columns: repeat(2, 1fr); } .whh-home__testimonials-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) { .whh-home__hero-inner { grid-template-columns: 1fr; } .whh-home__hero-visual { display: none; } .whh-home__stats-inner { grid-template-columns: repeat(2, 1fr); } .whh-home__features-grid { grid-template-columns: 1fr; } .whh-home__biblical-inner { grid-template-columns: 1fr; } .whh-home__testimonials-grid { grid-template-columns: 1fr; } .whh-home__blog-grid { grid-template-columns: 1fr; } }
