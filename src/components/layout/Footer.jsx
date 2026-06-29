@@ -34,6 +34,7 @@ export default function Footer() {
             <Link to="/ai-coach">AI Harvest Advisor</Link>
             <Link to="/faq">FAQ</Link>
             <Link to="/about">About</Link>
+            <Link to="/admin-config">Buyer Control Center</Link>
           </div>
           <div className="footer__col">
             <h4>Legal</h4>

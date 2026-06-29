@@ -32,4 +32,9 @@
     <loc>https://whole-home-harvest.pages.dev/legal</loc>
     <priority>0.5</priority>
   </url>
+
+  <url>
+    <loc>https://whole-home-harvest.pages.dev/admin-config</loc>
+    <priority>0.4</priority>
+  </url>
 </urlset>

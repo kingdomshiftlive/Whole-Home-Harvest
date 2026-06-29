@@ -140,3 +140,14 @@ git status
 ```
 
 The project should build cleanly and the working tree should be clean.
+
+## Buyer Control Center
+
+This asset includes a buyer configuration page at `/admin-config`. The buyer can record brand, domain, email, AI, analytics, ad, affiliate, social, and digital product settings without searching through the codebase.
+
+See:
+- `docs/ADMIN_CONFIGURATION_GUIDE.md`
+- `docs/SELLER_HANDOFF.md`
+- `docs/BUYER_SUPPORT_BOUNDARIES.md`
+- `docs/KINGDOMSHIFT_ASSET_STANDARD.md`
+

@@ -12,6 +12,7 @@ const navLinks = [
   { label: 'AI Harvest Advisor', path: '/ai-coach' },
   { label: 'FAQ', path: '/faq' },
   { label: 'Contact', path: '/contact' },
+  { label: 'Admin', path: '/admin-config' },
 ];
 
 export default function Navbar() {
