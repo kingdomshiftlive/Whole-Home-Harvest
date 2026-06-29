@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://wholehomeharvest.com/sitemap.xml
+
+Sitemap: https://whole-home-harvest.pages.dev/sitemap.xml
