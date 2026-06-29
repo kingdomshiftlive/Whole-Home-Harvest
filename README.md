@@ -151,3 +151,16 @@ See:
 - `docs/BUYER_SUPPORT_BOUNDARIES.md`
 - `docs/KINGDOMSHIFT_ASSET_STANDARD.md`
 
+## Premium Homepage & Product Positioning
+
+Whole Home Harvest now uses a premium buyer-facing homepage designed to feel like a polished digital business asset, not a starter template. The homepage highlights the AI advisor, seasonal calendar, interactive tools, community framework, monetization paths, and buyer control center so Flippa buyers can understand the value quickly.
+
+Key buyer-facing value points:
+- Premium faith-rooted homesteading brand
+- AI Harvest Advisor in safe demo mode
+- Buyer Control Center at `/admin-config`
+- Interactive tools and seasonal calendar
+- Lead magnet, affiliate, ad, and digital product framework
+- Complete documentation and transfer package
+- Future-ready architecture for community, course, and mobile/PWA expansion
+

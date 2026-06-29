@@ -1,179 +1,234 @@
 import { Link } from 'react-router-dom';
-import { Leaf, BookOpen, Brain, Calendar, ArrowRight, CheckCircle, Star } from 'lucide-react';
+import {
+  ArrowRight,
+  BarChart3,
+  BookOpen,
+  Brain,
+  Calendar,
+  CheckCircle,
+  Download,
+  Leaf,
+  Mic,
+  ShieldCheck,
+  Smartphone,
+  Sparkles,
+  Sprout,
+  Star,
+  Users,
+  Settings,
+} from 'lucide-react';
 import { testimonials } from '../data/siteData';
 import { blogPosts } from '../data/blogPosts';
 import AdSensePlaceholder from '../components/ui/AdSensePlaceholder';
 import './Home.css';
 
-const features = [
-  { icon: <Leaf size={28} />, title: 'AI Harvest Advisor', desc: 'Ask anything — planting schedules, pest identification, canning questions, chicken keeping, preservation methods. Kingdom-trained guidance available 24/7.', link: '/ai-coach', cta: 'Ask the AI Advisor' },
-  { icon: <Calendar size={28} />, title: 'Planting Calendar', desc: 'Enter your growing zone and get exact dates for starting seeds, transplanting, and harvesting every crop. Takes the guesswork out of timing.', link: '/tools', cta: 'Open Planting Calendar' },
-  { icon: <BookOpen size={28} />, title: 'Canning Safety Guide', desc: 'Step-by-step water bath and pressure canning guides following USDA-tested methods. Preserve with confidence and safety.', link: '/tools', cta: 'See Canning Guides' },
-  { icon: <Brain size={28} />, title: 'Kingdom Declaration Tool', desc: 'Speak faith over your harvest. Declarations rooted in Scripture for the homesteader — provision, patience, first fruits, new seasons.', link: '/tools', cta: 'Get Your Declaration' },
+const premiumModules = [
+  {
+    icon: Brain,
+    title: 'AI Harvest Advisor',
+    desc: 'A niche-specific advisor for planting, preservation, flock care, seasonal planning, and faith-rooted stewardship. Ships in safe demo mode so buyers connect their own AI key.',
+    link: '/ai-coach',
+    cta: 'Open AI Advisor',
+  },
+  {
+    icon: Calendar,
+    title: 'Kingdom Seasonal Calendar',
+    desc: 'Connects garden timing, harvest planning, Sabbath rhythms, and biblical stewardship into a repeat-return user experience.',
+    link: '/tools',
+    cta: 'View Calendar Tools',
+  },
+  {
+    icon: Sprout,
+    title: 'Interactive Homestead Tools',
+    desc: 'Planting windows, canning safety, sustainability scoring, declarations, community boards, and practical decision tools for the niche.',
+    link: '/tools',
+    cta: 'Use Tools',
+  },
+  {
+    icon: Settings,
+    title: 'Buyer Control Center',
+    desc: 'A post-sale configuration dashboard for brand, domain, email, affiliate, analytics, AI, ads, and digital product settings.',
+    link: '/admin-config',
+    cta: 'View Control Center',
+  },
+];
+
+const buyerValue = [
+  'Premium React + Vite digital asset',
+  'Buyer documentation and handoff guides',
+  'SEO content, sitemap, robots, and metadata',
+  'Newsletter, lead magnet, affiliate, ads, and digital product framework',
+  'Safe AI demo mode with buyer API setup notes',
+  'Future-ready modules for community, courses, PWA, and automation',
+];
+
+const futureFeatures = [
+  { icon: Mic, title: 'Voice-Ready Content', desc: 'Conversational headings and answers designed for search, snippets, and voice assistants.' },
+  { icon: Users, title: 'Community Framework', desc: 'Prayer, goal, barter, harvest, and local resource boards built as reusable site modules.' },
+  { icon: Smartphone, title: 'Mobile/PWA Direction', desc: 'Mobile-first responsive structure that can later become an installable PWA or native app foundation.' },
+  { icon: BarChart3, title: 'Revenue Paths', desc: 'Affiliate, ad, lead magnet, newsletter, course, workshop, and digital product paths documented for the buyer.' },
 ];
 
 export default function Home() {
-  const featured = blogPosts.filter(p => p.featured).slice(0, 3);
+  const featured = blogPosts.filter((p) => p.featured).slice(0, 3);
 
   return (
-    <div className="whh-home">
-      {/* Hero */}
-      <section className="whh-home__hero">
-        <div className="container whh-home__hero-inner">
-          <div className="whh-home__hero-content">
-            <div className="whh-home__hero-badge">
-              <Leaf size={14} /> Faith-Rooted Homesteading
-            </div>
-            <h1 className="whh-home__hero-title">
-              Tend the Earth.<br />
-              <span className="whh-home__hero-accent">Feed Your Family.</span><br />
-              Honor God.
+    <div className="whh-home whh-premium-home">
+      <section className="whh-luxe-hero">
+        <div className="whh-luxe-hero__glow whh-luxe-hero__glow--one" />
+        <div className="whh-luxe-hero__glow whh-luxe-hero__glow--two" />
+        <div className="container whh-luxe-hero__grid">
+          <div className="whh-luxe-hero__content">
+            <div className="whh-luxe-kicker"><Sparkles size={16} /> Premium Kingdom Homestead Asset</div>
+            <h1>
+              A luxury faith-rooted homesteading platform built to feed families, honor God, and transfer cleanly to a buyer.
             </h1>
-            <p className="whh-home__hero-sub">
-              God's first assignment to humanity was a garden. Kingdom homesteaders are returning to that calling — growing food, preserving harvests, raising animals, and living more self-sufficiently from the land God entrusted to them.
+            <p>
+              Whole Home Harvest combines practical food independence, biblical stewardship, AI guidance, seasonal rhythms,
+              monetization pathways, and buyer-ready documentation into one polished digital business asset.
             </p>
-            <div className="whh-home__hero-actions">
-              <Link to="/ai-coach" className="btn btn--primary btn--lg">AI Harvest Advisor <ArrowRight size={18} /></Link>
-              <Link to="/tools" className="btn btn--outline btn--lg">Planting Calendar</Link>
+            <div className="whh-luxe-hero__actions">
+              <Link to="/tools" className="btn btn--primary btn--lg">Explore the Platform <ArrowRight size={18} /></Link>
+              <Link to="/admin-config" className="btn btn--outline btn--lg">Buyer Control Center</Link>
             </div>
-            <p className="whh-home__hero-scripture">
-              "The Lord God took the man and put him in the Garden of Eden to work it and keep it." — Genesis 2:15
-            </p>
+            <div className="whh-luxe-scripture">
+              <span>Genesis 2:15</span>
+              <strong>“The Lord God took the man and put him in the Garden of Eden to work it and keep it.”</strong>
+            </div>
           </div>
-          <div className="whh-home__hero-visual">
-            {[
-              { icon: '🌱', title: 'Start where you are.', desc: 'No land required. A raised bed. A balcony. A windowsill. The garden begins today.' },
-              { icon: '🫙', title: 'Preserve the abundance.', desc: 'Canning, freezing, fermenting, dehydrating — every method covered with safety first.' },
-              { icon: '🌾', title: 'Honor the harvest.', desc: 'What you grow with your hands and preserve with your time is an act of worship.' },
-            ].map((card, i) => (
-              <div key={i} className="whh-home__hero-card">
-                <div className="whh-home__hero-card-icon">{card.icon}</div>
-                <div><strong>{card.title}</strong><p>{card.desc}</p></div>
+
+          <div className="whh-luxe-console" aria-label="Whole Home Harvest platform preview">
+            <div className="whh-luxe-console__top">
+              <span /> <span /> <span />
+              <strong>Whole Home Harvest OS</strong>
+            </div>
+            <div className="whh-luxe-console__body">
+              <div className="whh-luxe-console__metric">
+                <small>Asset readiness</small>
+                <strong>Premium</strong>
+                <div><i style={{ width: '92%' }} /></div>
               </div>
-            ))}
+              <div className="whh-luxe-console__cards">
+                <article><Brain size={18} /><strong>AI Advisor</strong><span>Demo-safe</span></article>
+                <article><Calendar size={18} /><strong>Calendar</strong><span>Seasonal</span></article>
+                <article><Users size={18} /><strong>Community</strong><span>Framework</span></article>
+                <article><Settings size={18} /><strong>Admin</strong><span>Buyer-ready</span></article>
+              </div>
+              <div className="whh-luxe-console__note">
+                <Leaf size={18} /> Built for the end user, documented for the buyer, structured for the seller to transfer and move on.
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="whh-home__stats">
-        <div className="container whh-home__stats-inner">
+      <section className="whh-premium-stats">
+        <div className="container whh-premium-stats__grid">
           {[
-            { num: '44%', label: 'US families planning to grow food' },
-            { num: '24%', label: 'Increase in home food production since 2020' },
-            { num: '6', label: 'Original homesteading articles' },
-            { num: '24/7', label: 'AI Harvest Advisor available' },
-          ].map((s, i) => (
-            <div key={i} className="whh-home__stat">
-              <div className="whh-home__stat-num">{s.num}</div>
-              <div className="whh-home__stat-label">{s.label}</div>
+            ['6+', 'SEO content articles'],
+            ['15+', 'Affiliate categories & partners'],
+            ['5', 'Buyer handoff documents'],
+            ['2029', 'Future-ready roadmap'],
+          ].map(([num, label]) => (
+            <div className="whh-premium-stat" key={label}>
+              <strong>{num}</strong>
+              <span>{label}</span>
             </div>
           ))}
         </div>
       </section>
 
-      <div className="container" style={{ padding: '0.5rem 1.5rem' }}>
-        <AdSensePlaceholder slot="banner" />
-      </div>
-
-      {/* Features */}
-      <section className="whh-home__features section">
+      <section className="section whh-platform-modules">
         <div className="container">
           <div className="section-header">
-            <h2>Everything the Kingdom Homesteader Needs</h2>
-            <p>Tools, guides, and AI-powered advice for every stage of your homestead journey.</p>
+            <span className="section-eyebrow">Turnkey Today</span>
+            <h2>Everything a Kingdom homesteader needs — and everything a buyer needs to take over.</h2>
+            <p>Useful for the visitor, monetizable for the buyer, and packaged cleanly for transfer.</p>
           </div>
-          <div className="whh-home__features-grid">
-            {features.map((f, i) => (
-              <div key={i} className="whh-home__feature-card card">
-                <div className="whh-home__feature-icon">{f.icon}</div>
-                <h3>{f.title}</h3>
-                <p>{f.desc}</p>
-                <Link to={f.link} className="whh-home__feature-link">{f.cta} <ArrowRight size={15} /></Link>
-              </div>
+          <div className="whh-platform-modules__grid">
+            {premiumModules.map(({ icon: Icon, title, desc, link, cta }) => (
+              <article className="whh-luxe-card" key={title}>
+                <div className="whh-luxe-card__icon"><Icon size={24} /></div>
+                <h3>{title}</h3>
+                <p>{desc}</p>
+                <Link to={link}>{cta} <ArrowRight size={15} /></Link>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Biblical Foundation */}
-      <section className="whh-home__biblical section">
-        <div className="container whh-home__biblical-inner">
-          <div className="whh-home__biblical-content">
-            <h2>Homesteading Is Biblical.</h2>
-            <p className="whh-home__biblical-lead">
-              Before there was a career path, a grocery store, or a supply chain — there was a garden. And God put humanity in it to work it and keep it.
+      <div className="container whh-ad-wrap"><AdSensePlaceholder slot="banner" /></div>
+
+      <section className="section whh-buyer-strip">
+        <div className="container whh-buyer-strip__grid">
+          <div>
+            <span className="section-eyebrow">Buyer Confidence</span>
+            <h2>Designed to sell as a complete digital business asset — not a loose website template.</h2>
+            <p>
+              The buyer receives a clean codebase, a live deployment path, setup docs, monetization instructions,
+              support boundaries, and a configuration center so they can customize the site without asking the seller to manage it.
             </p>
-            <ul className="whh-home__biblical-list">
-              {[
-                'Genesis 2:15 — The first human assignment was tending a garden',
-                'Proverbs 31 — The virtuous woman planted a vineyard and provided food for her household',
-                'Proverbs 6:6-8 — The ant stores provisions in summer and gathers at harvest',
-                'Psalm 65:9 — God cares for the land and enriches it abundantly',
-                'Galatians 6:9 — At the proper time we will reap if we do not give up',
-              ].map((item, i) => (
-                <li key={i} className="whh-home__biblical-item">
-                  <CheckCircle size={18} className="whh-home__biblical-check" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <Link to="/blog/seasonal-eating-and-biblical-rhythms" className="btn btn--primary">
-              Read: The Biblical Case for Homesteading <ArrowRight size={16} />
-            </Link>
+            <Link to="/admin-config" className="btn btn--primary">View Buyer Control Center <ArrowRight size={16} /></Link>
           </div>
-          <div className="whh-home__biblical-visual">
-            <div className="whh-home__biblical-quote">
-              <blockquote>
-                "While the earth remains, seedtime and harvest, cold and heat, summer and winter, day and night, shall not cease."
-              </blockquote>
-              <cite>— Genesis 8:22</cite>
-            </div>
-            <div className="whh-home__seasons">
-              {['🌱 Seed', '🌿 Grow', '🌾 Harvest', '🫙 Preserve', '❄️ Rest'].map((s, i) => (
-                <span key={i} className="whh-home__season-tag">{s}</span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="whh-home__testimonials section">
-        <div className="container">
-          <div className="section-header">
-            <h2>Kingdom Homesteaders Who Found Their Ground Here</h2>
-          </div>
-          <div className="whh-home__testimonials-grid">
-            {testimonials.map(t => (
-              <div key={t.id} className="whh-home__testimonial card">
-                <div className="whh-home__testimonial-stars">
-                  {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
-                </div>
-                <p>"{t.quote}"</p>
-                <div className="whh-home__testimonial-author">
-                  <div className="whh-home__testimonial-avatar">{t.avatar}</div>
-                  <div>
-                    <div className="whh-home__testimonial-name">{t.name}</div>
-                    <div className="whh-home__testimonial-role">{t.role}</div>
-                  </div>
-                </div>
-              </div>
+          <div className="whh-buyer-list">
+            {buyerValue.map((item) => (
+              <div key={item}><CheckCircle size={18} /><span>{item}</span></div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Blog */}
-      <section className="whh-home__blog section">
+      <section className="section whh-biblical-luxe">
+        <div className="container whh-biblical-luxe__grid">
+          <div className="whh-biblical-luxe__quote">
+            <blockquote>
+              “While the earth remains, seedtime and harvest, cold and heat, summer and winter, day and night, shall not cease.”
+            </blockquote>
+            <cite>Genesis 8:22</cite>
+          </div>
+          <div>
+            <span className="section-eyebrow">The Why</span>
+            <h2>Scripture is the framework, not decoration.</h2>
+            <p>
+              The platform connects homesteading, seasonal stewardship, provision, preparation, and harvest to the biblical rhythms that make the niche distinct.
+            </p>
+            <div className="whh-season-tags">
+              {['Seed', 'Tend', 'Harvest', 'Preserve', 'Share', 'Rest'].map((tag) => <span key={tag}>{tag}</span>)}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section whh-future-ready">
         <div className="container">
           <div className="section-header">
-            <h2>From the Harvest Blog</h2>
+            <span className="section-eyebrow">Ready for 2027–2029</span>
+            <h2>Future features are built as understandable, buyer-friendly modules.</h2>
+            <p>Not hype. Not fragile. Practical architecture buyers can grow into.</p>
+          </div>
+          <div className="whh-future-ready__grid">
+            {futureFeatures.map(({ icon: Icon, title, desc }) => (
+              <article className="whh-future-card" key={title}>
+                <Icon size={22} />
+                <h3>{title}</h3>
+                <p>{desc}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section whh-home__blog">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-eyebrow">Content Engine</span>
+            <h2>SEO articles that teach, build trust, and support monetization.</h2>
             <p>Faith-rooted guides for every season of the homestead life.</p>
           </div>
           <div className="whh-home__blog-grid">
-            {featured.map(post => (
-              <div key={post.id} className="whh-home__blog-card card">
+            {featured.map((post) => (
+              <article key={post.id} className="whh-home__blog-card card">
                 <div className="whh-home__blog-category">{post.category}</div>
                 <h3>{post.title}</h3>
                 <p>{post.excerpt}</p>
@@ -181,27 +236,51 @@ export default function Home() {
                   <span>{post.readTime}</span>
                   <Link to={`/blog/${post.slug}`} className="whh-home__blog-link">Read <ArrowRight size={14} /></Link>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
-          <div style={{ textAlign: 'center', marginTop: '2rem' }}>
-            <Link to="/blog" className="btn btn--outline">View All Articles</Link>
+          <div className="whh-center"><Link to="/blog" className="btn btn--outline">View All Articles</Link></div>
+        </div>
+      </section>
+
+      <section className="section whh-home__testimonials">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-eyebrow">End User Value</span>
+            <h2>Built for people who want practical harvest confidence.</h2>
+          </div>
+          <div className="whh-home__testimonials-grid">
+            {testimonials.slice(0, 3).map((t) => (
+              <article key={t.id} className="whh-home__testimonial card">
+                <div className="whh-home__testimonial-stars">
+                  {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
+                </div>
+                <p>“{t.quote}”</p>
+                <div className="whh-home__testimonial-author">
+                  <div className="whh-home__testimonial-avatar">{t.avatar}</div>
+                  <div>
+                    <div className="whh-home__testimonial-name">{t.name}</div>
+                    <div className="whh-home__testimonial-role">{t.role}</div>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      <div className="container" style={{ padding: '0.5rem 1.5rem' }}>
-        <AdSensePlaceholder slot="rectangle" />
-      </div>
+      <div className="container whh-ad-wrap"><AdSensePlaceholder slot="rectangle" /></div>
 
-      {/* CTA */}
-      <section className="whh-home__cta">
-        <div className="container whh-home__cta-inner">
-          <h2>The Garden Was God's First Gift. Start Tending Yours.</h2>
-          <p>Whether you have forty acres or a fire escape — the homestead life begins with one seed, one season, one faithful act of stewardship at a time.</p>
-          <div className="whh-home__cta-actions">
-            <Link to="/ai-coach" className="btn btn--primary btn--lg">Ask the AI Harvest Advisor</Link>
-            <Link to="/tools" className="btn btn--ghost btn--lg">Open Planting Calendar</Link>
+      <section className="whh-final-cta">
+        <div className="container whh-final-cta__inner">
+          <ShieldCheck size={30} />
+          <h2>Built for a clean Flippa handoff.</h2>
+          <p>
+            Source code, docs, monetization pathways, AI setup notes, buyer support boundaries, and the admin configuration center are included.
+          </p>
+          <div className="whh-final-cta__actions">
+            <Link to="/resources" className="btn btn--primary btn--lg">Explore Resources</Link>
+            <Link to="/contact" className="btn btn--outline btn--lg">Contact / Setup Notes</Link>
           </div>
         </div>
       </section>
